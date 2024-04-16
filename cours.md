@@ -425,3 +425,57 @@ git remote show origin
 
 git branch --all
 ```
+
+#### Supprimer une branche sur remote
+
+```
+git push <nom du remote> --delete <nom de la branche>
+```
+
+### Rebasing
+
+![alt text](image-15.png)
+
+Pour effectuer un rebase on va effectuer les commandes suivantes:
+
+```
+git checkout experiment
+git rebase master
+```
+
+![alt text](image-16.png)
+
+```
+git checkout master
+git merge experiment
+```
+
+![alt text](image-17.png)
+
+#### Petit defi sur le rebasing
+
+![alt text](image-18.png)
+
+Pour rebaser client sur master:
+
+```
+git checkout client
+git rebase --onto master server client
+```
+
+![alt text](image-19.png)
+
+---
+
+## CI/CD avec Github Actions
+
+GitHub est conçu pour aider les équipes de développeurs et d’ingénieurs DevOps à créer et à déployer rapidement des applications. Il existe de nombreuses fonctionnalités dans GitHub qui permettent cela, mais elles appartiennent généralement à l’une des deux catégories suivantes :
+
+**Communication** : prenez en compte toutes les façons dont GitHub permet à une équipe de développeurs de communiquer facilement sur le projet de développement logiciel : les révisions de code dans les requêtes de demande de tirage (pull request), les problèmes GitHub, les tableaux de projets, les wikis, les notifications, etc.
+
+**Automatisation** : la fonctionnalité `GitHub Actions` permet à votre équipe d’automatiser des flux de travail à chaque étape du processus de développement logiciel, de l’intégration au déploiement en passant par la livraison. Elle vous permet même d’automatiser l’ajout de tags lors des pull requests, ainsi que la vérification de problèmes et demandes de tirage obsolètes.
+Quand elles sont combinées, ces fonctionnalités permettent à des milliers d’équipes de développement de réduire efficacement le temps nécessaire de l’idée initiale au déploiement.
+
+### Introduction
+
+Github Actions est un service d'intégration et de déploiement continu (CI/CD) qui permet d'automatiser les tâches de développement.
