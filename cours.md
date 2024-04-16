@@ -479,3 +479,54 @@ Quand elles sont combinées, ces fonctionnalités permettent à des milliers d�
 ### Introduction
 
 Github Actions est un service d'intégration et de déploiement continu (CI/CD) qui permet d'automatiser les tâches de développement.
+
+### Les workflows
+
+Le but est de diminuer le temps de développement en automatisant les tâches répétitives. Un workflow est une suite d'actions qui sont déclenchées par des événements.
+
+Les workflows couvrent ce genre de tâches:
+
+- s'assurer que le code passe tous les tests unitaires
+- s'assurer que le code est conforme aux standards de codage
+- effectuer des controles en terme de securité liés au code ou aux dependances
+- versionner le code (tagging)
+- deployer le code sur un serveur
+- notifier les membres de l'équipe
+- s'assurer du passage des tests d'intégration, de performance, de sécurité, etc.
+- en cas d'échec, notifier les membres de l'équipe
+
+### Les actions
+
+Github Actions c'est un package de scripts qui permettent d'automatiser des tâches. Ces scripts sont stockés dans des dépôts Github.
+
+#### La structure des actions :
+
+```yml
+steps:
+  - uses: actions/checkout@v1
+  - name: npm install and build
+    run: |
+      npm install
+      npm run build
+```
+
+#### La structure des workflows
+
+```yml
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  # Also trigger on page_build, as well as release created events
+  page_build:
+  release:
+    types: # This configuration does not affect the page_build event above
+      - created
+```
+
+Lien vers la syntaxe des workflows: [Github Actions Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
